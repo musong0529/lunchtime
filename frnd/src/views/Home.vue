@@ -1,13 +1,12 @@
 <template>
-  <HelloWorld />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+// import LunchRcmndtnBtn from '../components/LunchRcmndtnBtn'
 
-  export default {
-    components: {
-      HelloWorld
-    }
+export default {
+  components: {
+    // LunchRcmndtnBtn
   }
+}
 </script>

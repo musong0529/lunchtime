@@ -1,38 +1,37 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
+    <Toolbar></Toolbar>
     <v-content>
-      <HelloWorld/>
+      <!-- <HelloWorld/> -->
+      <!-- <v-container fluid fill-height>
+        <router-view></router-view>
+      </v-container> -->
+      <Rbtn></Rbtn>
+      <Vbtn></Vbtn>
+      <!-- <router-view></router-view> -->
     </v-content>
+
+    <!-- <v-footer class="pa-3" color="cyan" app>
+      <v-spacer></v-spacer>
+      <span class="white--text">&copy; 2019 HUDALDALDAL</span>
+    </v-footer> -->
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+// import HelloWorld from './components/HelloWorld'
+import Toolbar from '@/components/Toolbar'
+import Rbtn from '@/components/rBtn'
+import Vbtn from '@/components/vBtn'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Toolbar,
+    Rbtn,
+    Vbtn
   },
-  data () {
-    return {
-      //
-    }
-  }
+  data: () => ({
+
+  })
 }
 </script>
