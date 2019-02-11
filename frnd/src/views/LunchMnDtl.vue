@@ -24,10 +24,10 @@
         <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum maiores modi quidem veniam, expedita quis laboriosam, ullam facere adipisci, iusto, voluptate sapiente corrupti asperiores rem nemo numquam fuga ab at.</dd>
       </dl>
     </div>
-    <LunchGoBtn></LunchGoBtn>
-    <!-- <v-layout>
+    <!-- <LunchGoBtn></LunchGoBtn> -->
+    <v-layout>
       <v-btn class="title" color="deep-orange darken-1" large block dark round>{{ lunchMn }} 먹으로 가자</v-btn>
-    </v-layout> -->
+    </v-layout>
   </v-layout>
 </template>
 
@@ -40,7 +40,7 @@ export default {
   },
   data () {
     return {
-      // lunchMn: ''
+      lunchMn: ''
     }
   }
 }

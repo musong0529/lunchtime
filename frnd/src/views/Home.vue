@@ -1,12 +1,17 @@
 <template>
+  <v-container>
+    <Rbtn></Rbtn>
+    <Vbtn></Vbtn>
+  </v-container>
 </template>
 
 <script>
-// import LunchRcmndtnBtn from '../components/LunchRcmndtnBtn'
-
+import Rbtn from '@/components/rBtn'
+import Vbtn from '@/components/vBtn'
 export default {
   components: {
-    // LunchRcmndtnBtn
+    Rbtn,
+    Vbtn
   }
 }
 </script>
