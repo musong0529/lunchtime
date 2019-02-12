@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import router from './router'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -31,21 +32,46 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    login ({ state, commit }, loginObj) {
-      // console.log(signObj)
-      let selectedUser = null
-      state.allUsers.forEach(user => {
-        if (user.email === loginObj.email) selectedUser = user
-      })
-      if (selectedUser === null || selectedUser.password !== loginObj.password) commit('loginError')
-      else {
-        commit('loginSuccess', selectedUser)
-        router.push({ name: 'mypage' })
-      }
+    login ({ dispatch }, loginObj) {
+      axios
+        .post('https://reqres.in/api/login', loginObj)
+        .then(res => {
+          console.log(res)
+          let token = res.data.token
+          window.localStorage.setItem('access_token', token)
+          dispatch('getMemberInfo')
+        })
+        .catch(err => {
+          console.error(err)
+        })
     },
     logout ({ commit }) {
       commit('logout')
       router.push({ name: 'home' })
+    },
+    getMemberInfo ({ commit }) {
+      let token = window.localStorage.getItem('access_token')
+      let config = {
+        headers: {
+          'access-token': token
+        }
+      }
+      axios
+        .get('https://reqres.in/api/users/2', config)
+        .then(response => {
+          console.log(response)
+          let userInfo = {
+            id: response.data.data.id,
+            first_name: response.data.data.first_name,
+            last_name: response.data.data.last_name,
+            avatar: response.data.data.avatar
+          }
+          commit('loginSuccess', userInfo)
+          router.push({ name: 'mypage' })
+        })
+        .catch(error => {
+          console.error(error)
+        })
     }
   }
 })

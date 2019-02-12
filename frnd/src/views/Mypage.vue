@@ -1,6 +1,11 @@
 <template>
   <div>
-    <p>welcome {{ userInfo.name }}</p>
+    <v-avatar>
+      <img
+        :src="`${userInfo.avatar}`"
+      >
+    </v-avatar>
+    <p>welcome {{ userInfo.first_name }} {{ userInfo.last_name }}</p>
   </div>
 </template>
 

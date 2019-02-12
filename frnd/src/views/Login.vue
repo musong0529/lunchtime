@@ -5,7 +5,7 @@
         :value="isLoginError"
         type="error"
       >
-        This is a error alert.
+        Login error!
       </v-alert>
       <v-alert
         :value="isLogin"
@@ -26,24 +26,21 @@
         v-model="password"
       ></v-text-field>
 
-      <v-btn @click="login({
-        email,
-        password
-      })" color="purple" depressed dark large block>login</v-btn>
-      <!-- <v-btn color="success" @click="test">Test</v-btn>
-      <v-btn color="success" @click="postTest">postTest</v-btn> -->
+      <v-btn @click="login({ email, password })" color="purple" depressed dark large block>login</v-btn>
+      <!-- <v-btn color="success" @click="test">Test</v-btn> -->
+      <!-- <v-btn color="success" @click="postTest">postTest</v-btn> -->
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-// import axios from "axios"
 import { mapState, mapActions } from 'vuex'
 export default {
   data () {
     return {
       email: null,
-      password: null
+      password: null,
+      value: false
     }
   },
   computed: {
@@ -53,30 +50,33 @@ export default {
     ...mapActions(['login'])
 
     // test () {
-    //   this.$http.get('https://reqres.in/api/users?page=2')
-    //   .then(res => {
-    //     // handle success
-    //     console.log(res);
-    //   })
-    //   .catch(error => {
-    //     // handle error
-    //     console.log(error);
-    //   })
-    //   .then(() => {
-    //     // always executed
-    //   });
+    //   this.$http
+    //     .get('https://reqres.in/api/users?page=2')
+    //     .then(res => {
+    //       // handle success
+    //       console.log(res)
+    //     })
+    //     .catch(error => {
+    //       // handle error
+    //       console.log(error)
+    //     })
+    //     .then(() => {
+    //       // always executed
+    //       console.log('always')
+    //     })
     // },
     // postTest () {
-    //   this.$http.post('https://reqres.in/api/register', {
-    //     email: "sydney@fife",
-    //     password: "pistol"
-    //   })
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(errvb => {
-    //     console.log(err);
-    //   });
+    //   this.$http
+    //     .post('https://reqres.in/api/register', {
+    //       email: 'sydney@fife',
+    //       password: 'pistol'
+    //     })
+    //     .then(res => {
+    //       console.log(res)
+    //     })
+    //     .catch(err => {
+    //       console.log(err)
+    //     })
     // }
   }
 }
