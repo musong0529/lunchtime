@@ -14,6 +14,14 @@
             <v-list-tile-title>Home</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile router :to="{ name: 'users' }" exact>
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Users</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
         <v-list-tile  v-if="isLogin === false" router :to="{ name: 'login' }" exact>
           <v-list-tile-action>
             <v-icon>contact_mail</v-icon>
@@ -73,9 +81,7 @@
     <!-- <Toolbar></Toolbar> -->
     <v-content>
       <!-- <HelloWorld/> -->
-      <v-container fluid fill-height>
         <router-view></router-view>
-      </v-container>
     </v-content>
 
     <!-- <v-footer class="pa-3" color="cyan" app>
@@ -91,7 +97,7 @@
 // import Rbtn from '@/components/rBtn'
 // import Vbtn from '@/components/vBtn'
 import { mapState } from 'vuex'
-import { eventBus } from './main.js'
+import { EventBus } from './main.js'
 
 export default {
   name: 'App',
@@ -111,7 +117,7 @@ export default {
   //   ...mapActions(['logout'])
   // },
   created () {
-    eventBus.$on('menuPush', menu => {
+    EventBus.$on('menuPush', menu => {
       console.log(menu)
       this.toolbartitle = menu
     })

@@ -38,6 +38,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "lunchMnDtl" */ './views/LunchMnDtl.vue')
     },
     {
+      path: '/users',
+      name: 'users',
+      component: () => import(/* webpackChunkName: "users" */ './views/Users.vue')
+    },
+    {
       path: '/lunchMnMp',
       name: 'lunchMnMp',
       component: () => import(/* webpackChunkName: "lunchMnMp" */ './views/LunchMnMp.vue')

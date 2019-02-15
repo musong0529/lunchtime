@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { eventBus } from '../main.js'
+import { EventBus } from '@/main.js'
 export default {
   data () {
     return {
@@ -13,7 +13,7 @@ export default {
     }
   },
   created () {
-    eventBus.$on('menuPush', menu => {
+    EventBus.$on('menuPush', menu => {
       this.rMenu = menu
     })
   }

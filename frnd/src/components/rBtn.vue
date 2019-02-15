@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { eventBus } from '../main.js'
+import { EventBus } from '@/main.js'
 export default {
   data () {
     return {
@@ -17,7 +17,7 @@ export default {
       // this.$router.push({
       //   name: 'lunchMnMp'
       // })
-      eventBus.$emit('menuPush', this.lunchMn)
+      EventBus.$emit('menuPush', this.lunchMn)
     }
   }
 }
