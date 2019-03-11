@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1
+      ,"name": "김밥"
+      ,"category":"분식"
+      , "content" : "김밥 설명"
+      ,"img": "http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79416/79416_185.jpg"
+    }
+    ,{
+        "id": 2
+        ,"name": "라면"
+        ,"category":"분식"
+        , "content" : "김밥 설명"
+        ,"img": "http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79416/79416_185.jpg"
+    }
+    ,{
+        "id": 3
+        ,"name": "김치찌게"
+        ,"category":"한식"
+        , "content" : "김치찌게 설명"
+        ,"img": "http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79416/79416_185.jpg"
+    }
+    ,{
+        "id": 4
+        ,"name": "된장찌게"
+        ,"category":"한식"
+        , "content" : "된장찌게 설명"
+        ,"img": "http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79416/79416_185.jpg"
+    }
+    ,{
+        "id": 5
+        ,"name": "짜장면"
+        ,"category":"중식"
+        , "content" : "짜장면 설명"
+        ,"img": "http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79416/79416_185.jpg"
+    }
+    ,{
+        "id": 6
+        ,"name": "탕수육"
+        ,"category":"중식"
+        , "content" : "탕수육 설명"
+        ,"img": "http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79416/79416_185.jpg"
+    }
+    ,{
+        "id": 7
+        ,"name": "회덮밥"
+        ,"category":"일식"
+        , "content" : "회덮밥 설명"
+        ,"img": "http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79416/79416_185.jpg"
+    }
+  ]
