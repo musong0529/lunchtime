@@ -1,17 +1,18 @@
 <template>
-  <v-container>
-    <Rbtn></Rbtn>
-    <Vbtn></Vbtn>
-  </v-container>
+  <vbtn></vbtn>
 </template>
 
 <script>
-import Rbtn from '@/components/rBtn'
+// import { eventBus } from '../main.js'
 import Vbtn from '@/components/vBtn'
 export default {
   components: {
-    Rbtn,
     Vbtn
+  },
+  data () {
+    return {
+      rMenu: ''
+    }
   }
 }
 </script>
