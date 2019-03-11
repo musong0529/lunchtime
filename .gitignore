@@ -10,3 +10,7 @@
 /.vs/ProjectSettings.json
 /.project
 /.vs/config/applicationhost.config
+.vs/launch.vs.json
+.vs/tasks.vs.json
+.vs/lunchTime/v15/.suo
+.vs/VSWorkspaceState.json
