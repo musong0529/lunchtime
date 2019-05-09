@@ -15,9 +15,11 @@ class DetailScreen extends Component {
 			'No Storyline'
 		);
 		const movieRating = navigation.getParam('movieRating');
+		const movieTitle = navigation.getParam('movieTitle');
 		return (
 			<View>
 				<Image style={styles.thumbnail} source={{ uri: moviePoster }} />
+				<Text>{JSON.stringify(movieTitle)}</Text>
 				<Text> {JSON.stringify(movieRating)} </Text>
 				<Text>{JSON.stringify(movieStoryline)}</Text>
 			</View>
