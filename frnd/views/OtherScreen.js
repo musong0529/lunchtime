@@ -5,19 +5,10 @@ import {
 	StyleSheet,
 	SafeAreaView,
 	Image,
-	Button,
 	ListView,
 	TouchableOpacity
 } from 'react-native';
-import { NavigationActions } from 'react-navigation';
-
-const navigateAction = NavigationActions.navigate({
-	routeName: 'Other',
-	params: {},
-
-	// navigate can have a nested navigate action that will be run inside the child router
-	action: NavigationActions.navigate({ routeName: 'Detail' })
-});
+import { Card, ListItem, Button, Icon } from 'react-native-elements';
 
 const REQUEST_URL =
 	'http://killpass.godohosting.com/datas/movie/json/top-rated-movies-02.json';
@@ -37,6 +28,10 @@ class OtherScreen extends Component {
 			})
 		};
 	}
+
+	static navigationOptions = {
+		title: 'Movie Lists'
+	};
 
 	getMoviesFromApiAsync() {
 		return fetch(REQUEST_URL)
@@ -91,13 +86,23 @@ class OtherScreen extends Component {
 						})
 					}
 				>
-					<Image style={styles.thumbnail} source={{ uri: movie.posterurl }} />
-					<View style={styles.rightContainer}>
-						<Text style={styles.title}>
-							{movie.year} {movie.title}
-						</Text>
-						<Text style={styles.title}>{genresMap}</Text>
-					</View>
+					<Card
+						wrapperStyle={{ backgroundColor: 'gold' }}
+						containerStyle={{ borderColor: 'black' }}
+						style={styles.card}
+						image={{ uri: movie.posterurl }}
+					>
+						{/* <Image
+								style={styles.thumbnail}
+								source={{ uri: movie.posterurl }}
+							/> */}
+						<View style={styles.rightContainer}>
+							<Text style={styles.title}>
+								{movie.year} {movie.title}
+							</Text>
+							<Text style={styles.title}>{genresMap}</Text>
+						</View>
+					</Card>
 				</TouchableOpacity>
 			</View>
 		);
@@ -109,10 +114,6 @@ class OtherScreen extends Component {
 		}
 		return (
 			<SafeAreaView>
-				<Button
-					title="Go To Detail"
-					onPress={() => this.props.navigation.navigate('Detail')}
-				/>
 				<ListView
 					dataSource={this.state.dataSource}
 					renderRow={this.renderMovie2.bind(this)}
@@ -125,18 +126,11 @@ class OtherScreen extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		flexDirection: 'row',
-		// backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-	rightContainer: {
 		flex: 1
 	},
-	thumbnail: {
-		width: 53,
-		height: 81
+	card: {
+		flex: 1,
+		borderRadius: 10
 	},
 	title: {
 		fontSize: 20,
