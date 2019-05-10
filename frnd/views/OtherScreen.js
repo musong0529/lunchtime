@@ -9,20 +9,17 @@ import {
 	TouchableOpacity
 } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements';
+import InfiniteScrollView from 'react-native-infinite-scroll-view';
+import ScrollToTop from 'react-native-scroll-to-top';
 
 const REQUEST_URL =
 	'http://killpass.godohosting.com/datas/movie/json/top-rated-movies-02.json';
-
-_pressRow = () => {
-	console.log('clicked');
-};
 
 class OtherScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			loaded: false,
-			// movies: null,
 			dataSource: new ListView.DataSource({
 				rowHasChanged: (row1, row2) => row1 !== row2
 			})
@@ -30,7 +27,14 @@ class OtherScreen extends Component {
 	}
 
 	static navigationOptions = {
-		title: 'Movie Lists'
+		title: 'Movie Lists',
+		headerStyle: {
+			backgroundColor: '#EDDBB4'
+		},
+		headerTintColor: '#231F20',
+		headerTitleStyle: {
+			fontWeight: 'bold'
+		}
 	};
 
 	getMoviesFromApiAsync() {
@@ -38,10 +42,8 @@ class OtherScreen extends Component {
 			.then(response => response.json())
 			.then(responseJson => {
 				this.setState({
-					// movies: responseJson.movies
 					loaded: true,
 					dataSource: this.state.dataSource.cloneWithRows(responseJson)
-					// dataSource: this.state.dataSource.cloneWithRows(responseJson.movies)
 				});
 			})
 			.catch(error => {
@@ -87,8 +89,8 @@ class OtherScreen extends Component {
 					}
 				>
 					<Card
-						wrapperStyle={{ backgroundColor: 'gold' }}
-						containerStyle={{ borderColor: 'black' }}
+						// wrapperStyle={{ backgroundColor: '#877D66' }}
+						containerStyle={{ borderColor: '#877D66' }}
 						style={styles.card}
 						image={{ uri: movie.posterurl }}
 					>
@@ -127,6 +129,7 @@ class OtherScreen extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1
+		// backgroundColor: '#EDDBB4'
 	},
 	card: {
 		flex: 1,
@@ -135,7 +138,8 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 20,
 		marginBottom: 8,
-		textAlign: 'center'
+		textAlign: 'center',
+		color: '#877D66'
 	},
 	year: {
 		textAlign: 'center'
