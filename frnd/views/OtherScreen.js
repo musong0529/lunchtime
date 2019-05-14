@@ -6,7 +6,8 @@ import {
 	SafeAreaView,
 	Image,
 	ListView,
-	TouchableOpacity
+	TouchableOpacity,
+	ActivityIndicator
 } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements';
 import InfiniteScrollView from 'react-native-infinite-scroll-view';
@@ -57,8 +58,8 @@ class OtherScreen extends Component {
 
 	renderLoadingView() {
 		return (
-			<View style={styles.container}>
-				<Text>Loading movies...</Text>
+			<View style={[styles.container, styles.centerHV]}>
+				<ActivityIndicator size="large" />
 			</View>
 		);
 	}
@@ -84,7 +85,8 @@ class OtherScreen extends Component {
 							movieRating: movie.imdbRating,
 							moviePoster: movie.posterurl,
 							movieActors: movie.actors,
-							movieStoryline: movie.storyline
+							movieStoryline: movie.storyline,
+							movieImdbRating: movie.imdbRating
 						})
 					}
 				>
@@ -129,7 +131,10 @@ class OtherScreen extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1
-		// backgroundColor: '#EDDBB4'
+	},
+	centerHV: {
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
 	card: {
 		flex: 1,

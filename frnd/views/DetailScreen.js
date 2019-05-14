@@ -10,13 +10,14 @@ import {
 	SafeAreaView,
 	ScrollView
 } from 'react-native';
+import { Rating } from 'react-native-elements';
 import { Header } from 'react-navigation';
 import * as Animatable from 'react-native-animatable';
 import HeaderImageScrollView, {
 	TriggeringView
 } from 'react-native-image-header-scroll-view';
 
-const MIN_HEIGHT = Header.HEIGHT * 1.5;
+const MIN_HEIGHT = Header.HEIGHT * 1.38;
 const MAX_HEIGHT = 420;
 
 class DetailScreen extends Component {
@@ -39,17 +40,17 @@ class DetailScreen extends Component {
 			'movieStoryline',
 			'No Storyline'
 		);
-		const movieRating = navigation.getParam('movieRating');
 		const movieTitle = navigation.getParam('movieTitle');
 		const movieYear = navigation.getParam('movieYear');
+		const movieRating = navigation.getParam('movieRating') / 2;
 		return (
 			<View style={styles.container}>
 				<StatusBar barStyle="light-content" />
 				<HeaderImageScrollView
 					maxHeight={MAX_HEIGHT}
 					minHeight={MIN_HEIGHT}
-					maxOverlayOpacity={1}
-					minOverlayOpacity={0}
+					maxOverlayOpacity={0.87}
+					minOverlayOpacity={0.38}
 					fadeOutForeground
 					renderHeader={() => (
 						<Image source={{ uri: moviePoster }} style={styles.image} />
@@ -61,18 +62,16 @@ class DetailScreen extends Component {
 								this.navTitleView = navTitleView;
 							}}
 						>
-							<Text style={styles.navTitle}>{JSON.stringify(movieTitle)}</Text>
+							<Text style={styles.navTitle}>{movieTitle}</Text>
 						</Animatable.View>
 					)}
 					overScrollMode="never"
 					overlayColor="#EDDBB4"
-					renderForeground={() => (
-						<View style={styles.titleContainer}>
-							<Text style={styles.imageTitle}>
-								{JSON.stringify(movieTitle)}
-							</Text>
-						</View>
-					)}
+					// renderForeground={() => (
+					// 	<View style={styles.titleContainer}>
+					// 		<Text style={styles.imageTitle}>{movieTitle}</Text>
+					// 	</View>
+					// )}
 				>
 					<TriggeringView
 						style={styles.section}
@@ -84,11 +83,22 @@ class DetailScreen extends Component {
 							{movieYear})
 						</Text>
 					</TriggeringView>
-					<View style={styles.section}>
+					<View style={[styles.section, { height: 1000 }]}>
 						<Text style={styles.sectionTitle}>Overview</Text>
-						<Text style={styles.sectionContent}>
-							{JSON.stringify(movieStoryline)}
+						<Text style={styles.ratingTxt}>
+							<Text style={styles.rankingPoint}>{movieRating}</Text>/5
 						</Text>
+						<Rating
+							readonly
+							showRating={false}
+							ratingCount={5}
+							type="star"
+							fractions={1}
+							imageSize={20}
+							startingValue={movieRating}
+							style={{ paddingBottom: 25 }}
+						/>
+						<Text style={styles.sectionContent}>{movieStoryline}</Text>
 					</View>
 				</HeaderImageScrollView>
 			</View>
@@ -98,8 +108,8 @@ class DetailScreen extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: '#f00'
+		flex: 1
+		// backgroundColor: '#f00'
 		// alignItems: 'center',
 		// justifyContent: 'center'
 	},
@@ -161,16 +171,28 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		paddingTop: 16,
-		opacity: 0
+		opacity: 0,
+		borderBottomWidth: 1,
+		borderBottomColor: '#dddddd'
 	},
 	navTitle: {
 		color: '#231F20',
 		fontSize: 18,
 		backgroundColor: 'transparent',
-		paddingTop: 20
+		paddingTop: 30
 	},
 	sectionLarge: {
 		height: 600
+	},
+	ratingTxt: {
+		textAlign: 'center',
+		paddingTop: 15,
+		paddingBottom: 5
+	},
+	rankingPoint: {
+		fontSize: 22,
+		color: '#f1c40e',
+		fontWeight: 'bold'
 	}
 });
 
