@@ -1,0 +1,16 @@
+#https://github.com/rundeck/rundeck/
+
+#Rundeck Guide
+#https://docs.rundeck.com/docs/manual/getting-started.html
+
+#실행 명령어
+sudo /etc/init.d/rundeckd start
+sudo /etc/init.d/rundeckd stop
+
+#rundeck 접속
+http://jwcho.iptime.org:4440/user/login
+
+##sheel script 샘플
+#https://github.com/dtolabs/rundeck-training/tree/master/jobs
+
+#https://lng1982.tistory.com/235
