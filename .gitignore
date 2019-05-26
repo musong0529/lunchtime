@@ -1,0 +1,24 @@
+﻿################################################################################
+# 이 .gitignore 파일은 Microsoft(R) Visual Studio에서 자동으로 만들어졌습니다.
+################################################################################
+
+/.settings/org.eclipse.wst.jsdt.ui.superType.name
+/.settings/org.eclipse.wst.jsdt.ui.superType.container
+/.settings/.jsdtscope
+/.settings
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/.project
+/.vs/config/applicationhost.config
+.vs/launch.vs.json
+.vs/tasks.vs.json
+.vs/lunchTime/v15/.suo
+.vs/VSWorkspaceState.json
+.vs/config/applicationhost.config
+.vs/VSWorkspaceState.json
+.vs/launch.vs.json
+.vs/slnx.sqlite
+.vs/tasks.vs.json
+.vs/lunchTime/v15/.suo
+.vs/
+node_modules/
