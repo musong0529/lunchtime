@@ -14,6 +14,7 @@
 .vs/tasks.vs.json
 .vs/lunchTime/v15/.suo
 .vs/VSWorkspaceState.json
+<<<<<<< HEAD
 .vs/config/applicationhost.config
 .vs/VSWorkspaceState.json
 .vs/launch.vs.json
@@ -22,3 +23,5 @@
 .vs/lunchTime/v15/.suo
 .vs/
 node_modules/
+=======
+>>>>>>> a84f5f621a121a497865656920c285184848da04
