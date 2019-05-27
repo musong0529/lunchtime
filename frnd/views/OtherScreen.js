@@ -5,48 +5,46 @@ import {
 	StyleSheet,
 	SafeAreaView,
 	Image,
-	Button,
 	ListView,
-	TouchableOpacity
+	TouchableOpacity,
+	ActivityIndicator
 } from 'react-native';
-import { NavigationActions } from 'react-navigation';
-
-const navigateAction = NavigationActions.navigate({
-	routeName: 'Other',
-	params: {},
-
-	// navigate can have a nested navigate action that will be run inside the child router
-	action: NavigationActions.navigate({ routeName: 'Detail' })
-});
+import { Card, ListItem, Button, Icon } from 'react-native-elements';
+import InfiniteScrollView from 'react-native-infinite-scroll-view';
+import ScrollToTop from 'react-native-scroll-to-top';
 
 const REQUEST_URL =
 	'http://killpass.godohosting.com/datas/movie/json/top-rated-movies-02.json';
-
-_pressRow = () => {
-	console.log('clicked');
-};
 
 class OtherScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			loaded: false,
-			// movies: null,
 			dataSource: new ListView.DataSource({
 				rowHasChanged: (row1, row2) => row1 !== row2
 			})
 		};
 	}
 
+	static navigationOptions = {
+		title: 'Movie Lists',
+		headerStyle: {
+			backgroundColor: '#EDDBB4'
+		},
+		headerTintColor: '#231F20',
+		headerTitleStyle: {
+			fontWeight: 'bold'
+		}
+	};
+
 	getMoviesFromApiAsync() {
 		return fetch(REQUEST_URL)
 			.then(response => response.json())
 			.then(responseJson => {
 				this.setState({
-					// movies: responseJson.movies
 					loaded: true,
 					dataSource: this.state.dataSource.cloneWithRows(responseJson)
-					// dataSource: this.state.dataSource.cloneWithRows(responseJson.movies)
 				});
 			})
 			.catch(error => {
@@ -60,8 +58,8 @@ class OtherScreen extends Component {
 
 	renderLoadingView() {
 		return (
-			<View style={styles.container}>
-				<Text>Loading movies...</Text>
+			<View style={[styles.container, styles.centerHV]}>
+				<ActivityIndicator size="large" />
 			</View>
 		);
 	}
@@ -87,17 +85,28 @@ class OtherScreen extends Component {
 							movieRating: movie.imdbRating,
 							moviePoster: movie.posterurl,
 							movieActors: movie.actors,
-							movieStoryline: movie.storyline
+							movieStoryline: movie.storyline,
+							movieImdbRating: movie.imdbRating
 						})
 					}
 				>
-					<Image style={styles.thumbnail} source={{ uri: movie.posterurl }} />
-					<View style={styles.rightContainer}>
-						<Text style={styles.title}>
-							{movie.year} {movie.title}
-						</Text>
-						<Text style={styles.title}>{genresMap}</Text>
-					</View>
+					<Card
+						// wrapperStyle={{ backgroundColor: '#877D66' }}
+						containerStyle={{ borderColor: '#877D66' }}
+						style={styles.card}
+						image={{ uri: movie.posterurl }}
+					>
+						{/* <Image
+								style={styles.thumbnail}
+								source={{ uri: movie.posterurl }}
+							/> */}
+						<View style={styles.rightContainer}>
+							<Text style={styles.title}>
+								{movie.year} {movie.title}
+							</Text>
+							<Text style={styles.title}>{genresMap}</Text>
+						</View>
+					</Card>
 				</TouchableOpacity>
 			</View>
 		);
@@ -109,10 +118,6 @@ class OtherScreen extends Component {
 		}
 		return (
 			<SafeAreaView>
-				<Button
-					title="Go To Detail"
-					onPress={() => this.props.navigation.navigate('Detail')}
-				/>
 				<ListView
 					dataSource={this.state.dataSource}
 					renderRow={this.renderMovie2.bind(this)}
@@ -125,23 +130,21 @@ class OtherScreen extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		flexDirection: 'row',
-		// backgroundColor: '#fff',
+		flex: 1
+	},
+	centerHV: {
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	rightContainer: {
-		flex: 1
-	},
-	thumbnail: {
-		width: 53,
-		height: 81
+	card: {
+		flex: 1,
+		borderRadius: 10
 	},
 	title: {
 		fontSize: 20,
 		marginBottom: 8,
-		textAlign: 'center'
+		textAlign: 'center',
+		color: '#877D66'
 	},
 	year: {
 		textAlign: 'center'
