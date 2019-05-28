@@ -13,4 +13,4 @@ http://jwcho.iptime.org:4440/user/login
 ##sheel script 샘플
 #https://github.com/dtolabs/rundeck-training/tree/master/jobs
 
-#https://lng1982.tistory.com/235 
+#https://lng1982.tistory.com/235

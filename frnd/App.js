@@ -20,12 +20,6 @@ import LoginScreen from './views/LoginScreen';
 import DashboardScreen from './views/DashboardScreen';
 import OtherScreen from './views/OtherScreen';
 import DetailScreen from './views/DetailScreen';
-<<<<<<< HEAD
-import PhotolistsScreen from './views/PhotolistsScreen';
-
-export default class App extends Component {
-	componentWillMount() {}
-=======
 
 export default class App extends Component {
 	componentWillMount() {
@@ -51,15 +45,12 @@ export default class App extends Component {
 		// 		});
 		// }, 3000);
 	}
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 
 	render() {
 		return <AppContainer />;
 	}
 }
 
-<<<<<<< HEAD
-=======
 // class Feed extends Component {
 // 	render() {
 // 		return (
@@ -207,7 +198,6 @@ export default class App extends Component {
 // 	}
 // );
 
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 // const AppDrawerNavigator = createDrawerNavigator({
 // 	Dashboard: {
 // 		screen: DashboardStackNavigator
@@ -220,25 +210,11 @@ export default class App extends Component {
 
 const UserAddStackNavigator = createStackNavigator({
 	Login: LoginScreen,
-<<<<<<< HEAD
-	Dashboard: DashboardScreen,
-	Photolists: PhotolistsScreen
-});
-
-const OtherStackNavigator = createStackNavigator({
-	Other: {
-		screen: OtherScreen,
-		navigationOptions: () => ({
-			headerBackTitle: null
-		})
-	},
-=======
 	Dashboard: DashboardScreen
 });
 
 const OtherStackNavigator = createStackNavigator({
 	Other: OtherScreen,
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 	Detail: DetailScreen
 });
 
@@ -250,11 +226,7 @@ const AppSwitchNavigator = createSwitchNavigator(
 		// DetailModal: OtherStackNavigator
 	},
 	{
-<<<<<<< HEAD
-		initialRouteName: 'Login'
-=======
 		initialRouteName: 'Other'
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 		// mode: 'modal',
 		// headerMode: 'none'
 	}

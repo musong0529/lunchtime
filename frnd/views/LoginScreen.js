@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { View, StyleSheet, SafeAreaView, AlertIOS } from 'react-native';
-=======
 import { View, StyleSheet, AlertIOS } from 'react-native';
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 import { Button, Text, Input } from 'react-native-elements';
 import Icon from '@expo/vector-icons/FontAwesome';
 import firebase from 'firebase';
@@ -20,14 +16,6 @@ class LoginScreen extends Component {
 		};
 	}
 
-<<<<<<< HEAD
-	static navigationOptions = {
-		// headerTintColor: '#231F20',
-		headerTransparent: true
-	};
-
-=======
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 	writeUserData = (userId, name, age, location) => {
 		if (this.state.userId === '') {
 			AlertIOS.alert('Please enter your userId!');
@@ -155,11 +143,6 @@ class LoginScreen extends Component {
 	};
 
 	render() {
-<<<<<<< HEAD
-		return (
-			<SafeAreaView style={styles.container}>
-				{/* <Text h2 style={styles.logo}>
-=======
 		const MOCKED_MOVIE_DATA = [
 			{
 				title: 'Title',
@@ -176,7 +159,6 @@ class LoginScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<Text h2 style={styles.logo}>
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 					LoGo
 				</Text>
 				<Button
@@ -184,11 +166,7 @@ class LoginScreen extends Component {
 					title="Google Sign in"
 					buttonStyle={{ width: '100%' }}
 					onPress={() => this.signInWithGoogleAsync()}
-<<<<<<< HEAD
-				/> */}
-=======
 				/>
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 
 				<View style={styles.addInput}>
 					<Text h3>Add User</Text>
@@ -227,26 +205,12 @@ class LoginScreen extends Component {
 						buttonStyle={{ width: '100%', marginTop: 20 }}
 					/>
 					<Button
-<<<<<<< HEAD
-						title="Go To MovieLists"
-						onPress={() => this.props.navigation.navigate('Other')}
-						buttonStyle={{ marginTop: 20 }}
-					/>
-					<Button
-						title="Go To PhotoLists"
-						onPress={() => this.props.navigation.navigate('Photolists')}
-						buttonStyle={{ marginTop: 20 }}
-					/>
-				</View>
-			</SafeAreaView>
-=======
 						title="Go To Detail"
 						onPress={() => this.props.navigation.navigate('DetailModal')}
 						buttonStyle={{ width: '100%', marginTop: 20 }}
 					/>
 				</View>
 			</View>
->>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 		);
 	}
 }
