@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import {
 	View,
 	Text,
@@ -19,10 +20,14 @@ import HeaderImageScrollView, {
 
 const MIN_HEIGHT = Header.HEIGHT * 1.38;
 const MAX_HEIGHT = 420;
+=======
+import { View, Text, StyleSheet, Image } from 'react-native';
+>>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 
 class DetailScreen extends Component {
 	constructor(props) {
 		super(props);
+<<<<<<< HEAD
 		this.state = {
 			showNavTitle: false
 		};
@@ -33,6 +38,11 @@ class DetailScreen extends Component {
 		headerTransparent: true
 	};
 
+=======
+		this.state = {};
+	}
+
+>>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 	render() {
 		const { navigation } = this.props;
 		const moviePoster = navigation.getParam('moviePoster', 'No Poster');
@@ -40,6 +50,7 @@ class DetailScreen extends Component {
 			'movieStoryline',
 			'No Storyline'
 		);
+<<<<<<< HEAD
 		const movieTitle = navigation.getParam('movieTitle');
 		const movieYear = navigation.getParam('movieYear');
 		const movieRating = navigation.getParam('movieRating') / 2;
@@ -101,6 +112,14 @@ class DetailScreen extends Component {
 						<Text style={styles.sectionContent}>{movieStoryline}</Text>
 					</View>
 				</HeaderImageScrollView>
+=======
+		const movieRating = navigation.getParam('movieRating');
+		return (
+			<View>
+				<Image style={styles.thumbnail} source={{ uri: moviePoster }} />
+				<Text> {JSON.stringify(movieRating)} </Text>
+				<Text>{JSON.stringify(movieStoryline)}</Text>
+>>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 			</View>
 		);
 	}
@@ -108,6 +127,7 @@ class DetailScreen extends Component {
 
 const styles = StyleSheet.create({
 	container: {
+<<<<<<< HEAD
 		flex: 1
 		// backgroundColor: '#f00'
 		// alignItems: 'center',
@@ -193,6 +213,16 @@ const styles = StyleSheet.create({
 		fontSize: 22,
 		color: '#f1c40e',
 		fontWeight: 'bold'
+=======
+		flex: 1,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	thumbnail: {
+		width: 290,
+		height: 350
+>>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 	}
 });
 

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
 node_modules/**/*
 .expo/*
 npm-debug.*
@@ -5,3 +9,29 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
+<<<<<<< HEAD
+=======
+=======
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+>>>>>>> a84f5f621a121a497865656920c285184848da04
+>>>>>>> 1320d0f5e1034229df1e890b4b3ecd0631e4089d
