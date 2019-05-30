@@ -28,11 +28,11 @@ class PhotolistsScreen extends Component {
 	}
 
 	getData = async () => {
-		const url =
+		const photoDataUrl =
 			'https://jsonplaceholder.typicode.com/photos?_limit=10&_page=' +
 			this.state.page;
 
-		fetch(url)
+		fetch(photoDataUrl)
 			.then(response => response.json())
 			.then(responseJson => {
 				this.setState({
@@ -73,15 +73,17 @@ class PhotolistsScreen extends Component {
 
 	render() {
 		return (
-			<FlatList
-				style={styles.container}
-				data={this.state.data}
-				renderItem={this.renderRow}
-				keyExtractor={(item, index) => index.toString()}
-				onEndReached={this.handleLoadMore}
-				onEndReachedThreshold={0}
-				ListFooterComponent={this.renderFooter}
-			/>
+			<View>
+				<FlatList
+					style={styles.container}
+					data={this.state.data}
+					renderItem={this.renderRow}
+					keyExtractor={(item, index) => index.toString()}
+					onEndReached={this.handleLoadMore}
+					onEndReachedThreshold={0}
+					ListFooterComponent={this.renderFooter}
+				/>
+			</View>
 		);
 	}
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, SafeAreaView, AlertIOS } from 'react-native';
-import { Button, Text, Input } from 'react-native-elements';
+import { View, Text, StyleSheet, SafeAreaView, AlertIOS } from 'react-native';
+import { Button, Input } from 'react-native-elements';
 import Icon from '@expo/vector-icons/FontAwesome';
 import firebase from 'firebase';
 
@@ -161,8 +161,8 @@ class LoginScreen extends Component {
 				/> */}
 
 				<View style={styles.addInput}>
-					<Text h3>Add User</Text>
-					<Input
+					<Text style={styles.logoText}>LunchTime</Text>
+					{/* <Input
 						value={this.state.userId}
 						placeholder="UserId"
 						autoCapitalize="none"
@@ -195,7 +195,7 @@ class LoginScreen extends Component {
 						title="Add"
 						onPress={this.writeUserData}
 						buttonStyle={{ width: '100%', marginTop: 20 }}
-					/>
+					/> */}
 					<Button
 						title="Go To MovieLists"
 						onPress={() => this.props.navigation.navigate('Other')}
@@ -215,10 +215,15 @@ class LoginScreen extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		flexDirection: 'column'
-		// backgroundColor: '#fafafa',
+		flexDirection: 'column',
+		backgroundColor: '#FEFEFA'
 		// alignItems: 'center',
 		// justifyContent: 'center'
+	},
+	logoText: {
+		color: '#C82538',
+		fontWeight: 'bold',
+		fontSize: 30
 	},
 	addInput: {
 		flex: 1,

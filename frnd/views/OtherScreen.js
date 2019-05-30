@@ -7,11 +7,12 @@ import {
 	Image,
 	ListView,
 	TouchableOpacity,
-	ActivityIndicator
+	ActivityIndicator,
+	Dimensions
 } from 'react-native';
-import { Card, ListItem, Button, Icon } from 'react-native-elements';
-import InfiniteScrollView from 'react-native-infinite-scroll-view';
-import ScrollToTop from 'react-native-scroll-to-top';
+// import { Card, ListItem, Button, Icon } from 'react-native-elements';
+// import InfiniteScrollView from 'react-native-infinite-scroll-view';
+// import ScrollToTop from 'react-native-scroll-to-top';
 
 const REQUEST_URL =
 	'http://killpass.godohosting.com/datas/movie/json/top-rated-movies-02.json';
@@ -56,15 +57,15 @@ class OtherScreen extends Component {
 		this.getMoviesFromApiAsync();
 	}
 
-	renderLoadingView() {
+	renderLoadingView = () => {
 		return (
 			<View style={[styles.container, styles.centerHV]}>
 				<ActivityIndicator size="large" />
 			</View>
 		);
-	}
+	};
 
-	renderMovie2(movie) {
+	renderMovie2 = movie => {
 		const genresMap = movie.genres.map((genre, i, arr) => {
 			if (arr.length - 1 === i) {
 				return genre;
@@ -76,7 +77,7 @@ class OtherScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<TouchableOpacity
-					style={styles.container}
+					style={styles.card}
 					onPress={() =>
 						this.props.navigation.navigate('Detail', {
 							movieTitle: movie.title,
@@ -90,27 +91,17 @@ class OtherScreen extends Component {
 						})
 					}
 				>
-					<Card
-						// wrapperStyle={{ backgroundColor: '#877D66' }}
-						containerStyle={{ borderColor: '#877D66' }}
-						style={styles.card}
-						image={{ uri: movie.posterurl }}
-					>
-						{/* <Image
-								style={styles.thumbnail}
-								source={{ uri: movie.posterurl }}
-							/> */}
-						<View style={styles.rightContainer}>
-							<Text style={styles.title}>
-								{movie.year} {movie.title}
-							</Text>
-							<Text style={styles.title}>{genresMap}</Text>
-						</View>
-					</Card>
+					<Image style={styles.poster} source={{ uri: movie.posterurl }} />
+					<View style={styles.posterDesc}>
+						<Text style={styles.title}>
+							{movie.year} {movie.title}
+						</Text>
+						<Text style={styles.genere}>{genresMap}</Text>
+					</View>
 				</TouchableOpacity>
 			</View>
 		);
-	}
+	};
 
 	render() {
 		if (!this.state.loaded) {
@@ -120,7 +111,7 @@ class OtherScreen extends Component {
 			<SafeAreaView>
 				<ListView
 					dataSource={this.state.dataSource}
-					renderRow={this.renderMovie2.bind(this)}
+					renderRow={this.renderMovie2}
 					style={styles.listView}
 				/>
 			</SafeAreaView>
@@ -137,12 +128,29 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 	card: {
-		flex: 1,
-		borderRadius: 10
+		marginBottom: 20,
+		marginLeft: 20,
+		marginRight: 20,
+		backgroundColor: '#F1F1F1'
+	},
+	poster: {
+		width: Dimensions.get('window').width,
+		alignSelf: 'stretch',
+		resizeMode: 'cover',
+		height: 200,
+		marginLeft: -20
+	},
+	posterDesc: {
+		paddingTop: 15,
+		paddingBottom: 10
 	},
 	title: {
 		fontSize: 20,
 		marginBottom: 8,
+		textAlign: 'center'
+	},
+	genere: {
+		fontSize: 16,
 		textAlign: 'center',
 		color: '#877D66'
 	},

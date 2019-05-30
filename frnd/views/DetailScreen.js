@@ -49,8 +49,8 @@ class DetailScreen extends Component {
 				<HeaderImageScrollView
 					maxHeight={MAX_HEIGHT}
 					minHeight={MIN_HEIGHT}
-					maxOverlayOpacity={0.87}
-					minOverlayOpacity={0.38}
+					maxOverlayOpacity={0.97}
+					minOverlayOpacity={0.24}
 					fadeOutForeground
 					renderHeader={() => (
 						<Image source={{ uri: moviePoster }} style={styles.image} />
