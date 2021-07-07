@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, SafeAreaView, AlertIOS } from 'react-native';
+import { View, StyleSheet, AlertIOS } from 'react-native';
 import { Button, Text, Input } from 'react-native-elements';
 import Icon from '@expo/vector-icons/FontAwesome';
 import firebase from 'firebase';
@@ -15,11 +15,6 @@ class LoginScreen extends Component {
 			error: false
 		};
 	}
-
-	static navigationOptions = {
-		// headerTintColor: '#231F20',
-		headerTransparent: true
-	};
 
 	writeUserData = (userId, name, age, location) => {
 		if (this.state.userId === '') {
@@ -148,9 +143,22 @@ class LoginScreen extends Component {
 	};
 
 	render() {
+		const MOCKED_MOVIE_DATA = [
+			{
+				title: 'Title',
+				year: '2015',
+				poster: {
+					thumbnail: 'http://i.imgur.com/UePbdph.jpg'
+				}
+			}
+		];
+		// const a = [1, 2, 3, 4, 5];
+		// const b = a.map(number => number * 2);
+
+		// console.log(b);
 		return (
-			<SafeAreaView style={styles.container}>
-				{/* <Text h2 style={styles.logo}>
+			<View style={styles.container}>
+				<Text h2 style={styles.logo}>
 					LoGo
 				</Text>
 				<Button
@@ -158,7 +166,7 @@ class LoginScreen extends Component {
 					title="Google Sign in"
 					buttonStyle={{ width: '100%' }}
 					onPress={() => this.signInWithGoogleAsync()}
-				/> */}
+				/>
 
 				<View style={styles.addInput}>
 					<Text h3>Add User</Text>
@@ -197,17 +205,12 @@ class LoginScreen extends Component {
 						buttonStyle={{ width: '100%', marginTop: 20 }}
 					/>
 					<Button
-						title="Go To MovieLists"
-						onPress={() => this.props.navigation.navigate('Other')}
-						buttonStyle={{ marginTop: 20 }}
-					/>
-					<Button
-						title="Go To PhotoLists"
-						onPress={() => this.props.navigation.navigate('Photolists')}
-						buttonStyle={{ marginTop: 20 }}
+						title="Go To Detail"
+						onPress={() => this.props.navigation.navigate('DetailModal')}
+						buttonStyle={{ width: '100%', marginTop: 20 }}
 					/>
 				</View>
-			</SafeAreaView>
+			</View>
 		);
 	}
 }
